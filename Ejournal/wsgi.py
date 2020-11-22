@@ -1,5 +1,5 @@
 """
-WSGI config for Ejournal_api project.
+WSGI config for Ejournal project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Ejournal_api.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Ejournal.settings')
 
 application = get_wsgi_application()
