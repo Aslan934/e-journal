@@ -1,0 +1,103 @@
+        .sidebar {
+        margin: 0;
+        padding: 0;
+        width: 200px;
+        background-image: linear-gradient( rgb(197, 98, 52), rgb(240, 228, 228));
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+        padding-top: 0px;
+        border-right: 1px solid black;
+        transition: 0.5s;
+        color: white
+    }
+    
+    .sidebar a:not(.closebtn) {
+        display: block;
+        color: white;
+        padding: 16px;
+        text-decoration: none;
+        border-bottom: 1px solid black;
+        text-decoration: none;
+    }
+    
+    .sidebar a:nth-last-child(1) {
+        border: 0px;
+    }
+    
+    .sidebar a.active {
+        background-color: green;
+        color: white;
+    }
+    
+    .sidebar a:hover:not(.active):not(.closebtn) {
+        background-color: red;
+        color: white;
+    }
+    
+    .sidebar .closebtn {
+        text-decoration: none;
+        position: absolute;
+        top: 0;
+        right: 10px;
+        font-size: 36px;
+        display: none;
+    }
+    
+    .navbar {
+        top: 0;
+        left: 0;
+        margin-left: 200px;
+        background-color: rgb(197, 98, 52);
+        text-align: center;
+        height: 57px;
+        border-bottom: 1px solid black;
+        color: white;
+    }
+    
+    .navbar .openbtn {
+        display: none;
+    }
+    
+    @media screen and (max-width: 400px) {
+        .sidebar {
+            width: 0;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            overflow-x: hidden;
+            padding-top: 80px;
+            transition: 0.5s;
+        }
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .sidebar .closebtn {
+            display: block;
+        }
+        .navbar {
+            margin-left: 0;
+            font-size: 20px;
+        }
+        .navbar .openbtn {
+            display: block;
+        }
+        .navbar h3 {
+            margin-right: 50px;
+        }
+        div.content {
+            margin-left: 0px
+        }
+    }
+    
+    @media only screen and (max-width: 900px) {
+        #wrapLeft,
+        #wrapRight,
+        #breakNav {
+            /*display: none;*/
+        }
