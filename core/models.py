@@ -5,7 +5,7 @@ from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, Permis
 class TeacherManager(BaseUserManager):
     """Manager for user profiles"""
 
-    def _create_user(self, email, name, password):
+    def create_user(self, email, name, password):
         """Create a new user profile"""
         if not email:
             raise ValueError("User must have an email address")
@@ -15,10 +15,6 @@ class TeacherManager(BaseUserManager):
         user.set_password(password)
         user.save(using=self._db)
         return user
-
-    def create_user(self, email, name, password=None, **extra_fields):
-        extra_fields.setdefault('is_superuser', False)
-        return self._create_user(email, password, **extra_fields)
 
     def create_superuser(self, email, name, password):
         """Create new superuser"""
@@ -39,9 +35,17 @@ class Subject(models.Model):
         return self.name
 
 
+class Student(models.Model):
+    name = models.CharField(max_length=250)
+
+    def __str__(self):
+        return self.name
+
+
 class GroupOfStudents(models.Model):
     name = models.CharField(max_length=200)
     date = models.DateTimeField()
+    students = models.ManyToManyField(Student)
     subjects = models.ManyToManyField(Subject)
 
     def __str__(self):
@@ -49,14 +53,6 @@ class GroupOfStudents(models.Model):
 
     class Meta:
         verbose_name_plural = 'Groups Of Students'
-
-
-class Student(models.Model):
-    name = models.CharField(max_length=250)
-    group = models.ForeignKey(GroupOfStudents, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.name
 
 
 class Teacher(AbstractBaseUser, PermissionsMixin):

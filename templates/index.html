@@ -1,38 +1,41 @@
 {% extends "base.html" %} {% block content %}
 <div class="row justify-content-center">
-    <div class='col-md-6'>
-        <div class="content1" style="  box-shadow: 0 1px 6px 2px #949393;
+  <div class="col-md-8" style="margin-top: 20px">
+    <div
+      class="content1"
+      style="
+        box-shadow: 0 1px 6px 2px #949393;
         padding: 15px;
-        margin-top: 20px;
         background: #fff;
-        ">
-
-
-            <table style="zoom: 100%" border="1">
-                <tr>
-                    <th>Name</th>
-                    <th>Surname</th>
-                    <th>Groups</th>
-
-                </tr>
-                <tr>
-                    <td>xx</td>
-                    <td>xx</td>
-                    <td>xx</td>
-                </tr>
-                <tr>
-                    <td>xx</td>
-                    <td>xx</td>
-                    <td>xx</td>
-                </tr>
-                <tr>
-                    <td>xx</td>
-                    <td>xx</td>
-                    <td>xx</td>
-                </tr>
-            </table>
-        </div>
+        margin: auto;
+      "
+    >
+      <table class="table table-hover" border="1">
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Groups</th>
+        </tr>
+        <tr>
+          <td>{{data.name}}</td>
+          <td>{{data.email}}</td>
+          <td>
+            {% for group in data.groupOfStudents.all %} {{group}} {% endfor %}
+          </td>
+        </tr>
+        <tr>
+          <td>xx</td>
+          <td>xx</td>
+          <td>xx</td>
+        </tr>
+        <tr>
+          <td>xx</td>
+          <td>xx</td>
+          <td>xx</td>
+        </tr>
+      </table>
     </div>
+  </div>
 </div>
 
 {% endblock content %}

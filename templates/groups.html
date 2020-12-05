@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-8" style="margin-top: 20px">
+        <div class="content1" style="
+        box-shadow: 0 1px 6px 2px #949393;
+        padding: 15px;
+        background: #fff;
+        margin: auto;
+      ">
+            <table class="table table-hover" border="1">
+                <tr>
+                    <th>Group name</th>
+                    <th>Subject</th>
+                </tr>
+                {% for groups in data.groupOfStudents.all %}
+                <tr>
+                    <td>{{groups.name}}</td>
+                    <td>
+                        {% for subjects in groups.subjects.all %} {% if subjects in data.subjects.all %} {{subjects.name}}, {% endif %} {% endfor %}
+                    </td>
+                </tr>
+
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

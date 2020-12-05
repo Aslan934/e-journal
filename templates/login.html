@@ -19,7 +19,7 @@
                 <div class="card border-dark rounded">
                     <div class="card-body">
                     <div class='text-center'><h1>Ejournal Management System<h1></div>
-                        <form method="POST" novalidate>
+                        <form method="POST">
                             {% csrf_token %} {{form|crispy}}
                             <button class="btn btn-lg btn-primary btn-block" type="submit">
                                     Sign in

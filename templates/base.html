@@ -24,14 +24,12 @@
 
   <body>
     <div class="sidebar" id="sidebar">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-        >&times;
-      </a>
+      <a class="closebtn" onclick="closeNav()">&times; </a>
       <div style="background-color: rgb(95, 37, 37); padding: 20px">
         <h3 align="center">{{data.name}}</h3>
       </div>
-      <a class=" ">Home</a>
-      <a class=" ">Home</a>
+      <a class="" href='/'>Home</a>
+      <a class="" href="{% url 'groups' %}">Groups</a>
       <a class=" ">Home</a>
     </div>
 
@@ -39,6 +37,7 @@
       <button class="openbtn" id="openbtn" onclick="openNav() ">&#9776;</button>
 
       <h3 style="margin: auto">e-journal.org</h3>
+      <a href={% url 'logout' %} style='text-decoration:none;color:inherit'>Logout</a>
     </div>
 
     <div class="container">

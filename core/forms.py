@@ -4,16 +4,14 @@ from . import models
 
 
 class LoginForm(forms.Form):
-    password = forms.CharField(widget=forms.PasswordInput())
-
-    class Meta:
-        model = models.Teacher
-        fields = ['email', 'password']
+    email = forms.CharField(label='Your email')
+    password = forms.CharField(
+        widget=forms.PasswordInput, label='Your password')
 
 
 class RegisterUserForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput())
-    confirm_password = forms.CharField(widget=forms.PasswordInput())
+    password = forms.CharField(widget=forms.PasswordInput)
+    confirm_password = forms.CharField(widget=forms.PasswordInput)
 
     class Meta:
         model = models.Teacher
